@@ -873,12 +873,12 @@ void keypadEvent(KeypadEvent key){
             case '1':
                 if(recordmode == on) {memrecordend(EEmemory1);} 
                 //If key held and in record mode, complete write of buffered digits to EEPROM memory
-                else if(recordmode == off && playbackmode == off) {mfmode = mf; EEPROM.write(mfmodeEE, mfmode);} 
+                else if(recordmode == off && playbackmode == off) {mfmode = mf; updateDisplay(); EEPROM.write(mfmodeEE, mfmode);} 
                 //Change to MF mode if not in record or playback modes
               break;
             case '2':
                 if(recordmode == on) {memrecordend(EEmemory2);}
-                else if(recordmode == off && playbackmode == off) {mfmode = dtmf; EEPROM.write(mfmodeEE, mfmode);} 
+                else if(recordmode == off && playbackmode == off) {mfmode = dtmf; updateDisplay(); EEPROM.write(mfmodeEE, mfmode);} 
                 //Change to DTMF mode if not in record or playback modes
               break;
             case '3':
